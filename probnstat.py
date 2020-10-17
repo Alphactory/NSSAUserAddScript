@@ -73,18 +73,17 @@ def binomial_expected_value(n, p):
     return n*p
 
 
+def poisson_dist(x, mu=.20):
+    if mu > 0:
+        return ((numpy.e**(mu*-1))*(mu**x))/(numpy.math.factorial(x))
+    else:
+        print("mu le 0")
+
+
 def main():
     # FUCK YOU PROB AND STAT, EAT MY PYTHON ASS
     ### input here ###
-    n=20
-    p=.1
+    print(1-poisson_dist(0, 8)-poisson_dist(1, 8))
     ##################
-    pmf=binomial_pmf(n, p)
-    print(binomial_random_variable_prob_between(0, 2, n, p))
-    print(binomial_random_variable_prob_between(5, n, n, p))
-    print(binomial_random_variable_prob_between(1, 4, n, p))
-    print(binomial_random_variable_prob_exactly(0, n, p))
-    print(compute_mu_from_pmf(pmf))
-    print(compute_standard_deviation(pmf))
 
 main()
